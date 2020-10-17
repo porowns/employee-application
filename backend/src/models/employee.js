@@ -10,7 +10,6 @@ var getEmployeeObject = async ({ firstName, lastName, hireDate, role }) => {
     const isValidHireDate = moment(hireDate, DATE_FORMAT).isValid();
     const hireDateInPast = moment(hireDate, DATE_FORMAT).isBefore(moment())
     const isValidRole = ROLES.includes(role)
-    console.log(DATE_FORMAT)
 
     if (!isValidHireDate) {
         throw new Error("Hire date must be in format: " + DATE_FORMAT)
@@ -24,17 +23,19 @@ var getEmployeeObject = async ({ firstName, lastName, hireDate, role }) => {
         throw new Error("Role must be one of the following: " + ROLES)
     }
 
-    favorite_joke = await joke.getJoke();
-    favorite_quote = await quote.getQuote();
+    favoriteJoke = await joke.getJoke();
+    favoriteQuote = await quote.getQuote();
+
     const employee = {
         "_id": uuidv4(),
         "firstName": firstName, 
         "lastName": lastName,
         "hireDate": hireDate, 
         "role": role, 
-        "favorite_joke": favorite_joke,
-        "favorite_quote": favorite_quote,
+        "favoriteJoke": favoriteJoke,
+        "favoriteQuote": favoriteQuote,
     }
+    
     return employee
 }
 
