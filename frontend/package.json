@@ -12,6 +12,7 @@
     "carbon-components-react": "7.3.0",
     "carbon-icons": "7.0.7",
     "dotenv": "^8.2.0",
+    "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

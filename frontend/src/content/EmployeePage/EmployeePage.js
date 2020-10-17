@@ -54,10 +54,10 @@ const EmployeePage = () => {
 
     const updateData = (_rows, loaded = true) => {
         _rows = cleanData(_rows);
-        console.log(_rows)
         setRows(_rows);
         setLoaded(loaded);
     }
+
 
     const fetchData = () => {
         const url = process.env.REACT_APP_API_URL + "/api/employees"
@@ -76,6 +76,11 @@ const EmployeePage = () => {
             updateData([], false);
             console.log(error);
         })
+    }
+
+    const refreshData = () => {
+        setLoaded(null);
+        fetchData();
     }
 
     useEffect(() => {
@@ -110,6 +115,7 @@ const EmployeePage = () => {
         return (
             <div className="bx--grid bx--grid--full-width bx--grid--no-gutter employee-page">
                 <EmployeeForm 
+                parentCallback={refreshData}
                 />
                 <EmployeeTable
                     headers={headers}

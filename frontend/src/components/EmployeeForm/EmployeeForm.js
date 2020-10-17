@@ -8,7 +8,7 @@ import {
     Select,
     SelectItem
   } from 'carbon-components-react';
-
+import moment from "moment";
 const props = () => {
   return {
     buttonTriggerText: "Add Employee",
@@ -17,7 +17,7 @@ const props = () => {
   };
 };
 
-export const EmployeeForm = () => {
+export const EmployeeForm = ( {parentCallback} ) => {
   const [firstName, updateFirstName] = useState('');
   const [firstNameInvalid, updateFirstNameInvalid] = useState(true);
   const [lastName, updateLastName] = useState('');
@@ -72,6 +72,7 @@ export const EmployeeForm = () => {
       id="input-modal"
       shouldCloseAfterSubmit={true}
       handleSubmit={() => {
+
         if (firstNameInvalid || hireDateInvalid || lastNameInvalid || roleInvalid) {
           return true 
         } else {
@@ -87,7 +88,10 @@ export const EmployeeForm = () => {
               'hireDate': hireDate,
               'role': role,
             })
+        }).then((response) => {
+          parentCallback();
         })
+        
         return true;
         }
         
@@ -111,6 +115,7 @@ export const EmployeeForm = () => {
       />
       <br />
       <DatePicker 
+        maxDate={moment().format("MM-DD-YYYY").toString()}
         datePickerType="single"
         onChange={ e => validateHireDate(e)}
         >
