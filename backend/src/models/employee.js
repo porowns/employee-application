@@ -15,16 +15,18 @@ class Employee {
     constructor () { }
     async init(firstName, lastName, hireDate, role) {
         this._id = uuidv4()
-        this.firstName = Employee.validateFirstName(firstName)
-        this.lastName = Employee.validateLastName(lastName)
-        this.hireDate = Employee.validateHireDate(hireDate)
-        this.role = Employee.validateRole(role)
+        this.firstName = firstName
+        this.lastName = lastName
+        this.hireDate = hireDate
+        this.role = role
         this.favoriteJoke = await joke.getJoke();
         this.favoriteQuote = await quote.getQuote();
+        this.isValid()
         return this
     }
     /* Save to DB */
     save() {
+
         this.isValid()
         database['users'][this._id] = this 
         database['roles'][this.role].addEmployee(this._id)
@@ -38,16 +40,16 @@ class Employee {
     Makes sure everything is valid, used when updating lazily.
     */
    isValid() {
-       Employee.validateFirstName(this.firstName)
-       Employee.validateLastName(this.lastName)
-       Employee.validateHireDate(this.hireDate)
-       Employee.validateRole(this.role)
+       this.firstName = this.validateFirstName(this.firstName)
+       this.lastName = this.validateLastName(this.lastName)
+       this.hireDate = this.validateHireDate(this.hireDate)
+       this.role = this.validateRole(this.role)
    }
     /* 
     Validates first name. Requirements:
         - String
     */ 
-    static validateFirstName (firstName) {
+    validateFirstName (firstName) {
         if (typeof firstName === 'string') {
             return firstName
         }
@@ -59,7 +61,7 @@ class Employee {
     Validates last name. Requirements:
         - String
     */ 
-    static validateLastName (lastName) {
+    validateLastName (lastName) {
         if (typeof lastName === 'string') {
             return lastName
         }
@@ -73,7 +75,7 @@ class Employee {
         - Format 'YYYY-MM-DD'
         - Date is in the past
     */ 
-    static validateHireDate (hireDate) {
+    validateHireDate (hireDate) {
         if (typeof hireDate === 'string') {
             const isValidHireDate = moment(hireDate, DATE_FORMAT).isValid();
             const hireDateInPast = moment(hireDate, DATE_FORMAT).isBefore(moment())
@@ -95,15 +97,20 @@ class Employee {
     Validates role. Requirements:
         - Role exists in DB (CEO, VP, MANAGER, LACKEY)
         - Validates when adding unique roles (e.g only 1 CEO)
+        - Case insensitive
     */ 
-    static validateRole (role) {
+    validateRole (role) {
+        if (typeof role !== 'string') {
+            throw new Error("Role must be a string")
+        }
+        role = role.toUpperCase()
         const roleObject = db.getRole(role)
 
         if (!roleObject) {
             throw new Error("Role must be one of the following: " + Object.keys(db.getRoles()))
         }
 
-        if (roleObject.unique === true && roleObject.users.length > 0) {
+        if (roleObject.unique === true && (roleObject.users.length > 0 && !roleObject.users.includes(this._id))) {
             throw new Error("There can only be one employee of role: " + roleObject.name)
         }
         return role
@@ -157,14 +164,25 @@ Update a user in the database with the supplied _id and parameters.
 Returns null if not found
 */
 const updateEmployee = async (_id, fields) => {
-    const oldEmployee = await getEmployee(_id)
-    if (!oldEmployee) {
+    const employee = await getEmployee(_id)
+    if (!employee) {
         return null
     }
-    
-    Object.keys(fields).forEach((field) => oldEmployee[field] = fields[field])
-    database['roles'][oldEmployee.role].removeEmployee(oldEmployee._id)
-    oldEmployee.save()
+
+    Object.keys(fields).forEach((field) => {
+        if (field === 'firstName')
+            employee.validateFirstName(fields[field])
+        else if (field === 'lastName') 
+            employee.validateLastName(fields[field])
+        else if (field === 'role') 
+            employee.validateRole(fields[field])
+        else if (field === 'hireDate')
+            employee.validateHireDate(fields[field])
+            employee[field] = fields[field]
+    })
+    employee.isValid()
+    database['roles'][employee.role].removeEmployee(employee._id)
+    employee.save()
     
     return await getEmployee(_id)
     
