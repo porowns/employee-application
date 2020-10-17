@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "publish": "ibmcloud cf push employee-api"
+    "push": "ibmcloud cf push employee-api"
   },
   "dependencies": {
     "cors": "^2.8.5",

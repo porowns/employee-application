@@ -89,6 +89,11 @@ export const EmployeeForm = ( {parentCallback} ) => {
               'role': role,
             })
         }).then((response) => {
+          if (response.status !== 200) {
+            response.json().then((resJSON) => {
+              parentCallback([resJSON["message"]]);
+            }) 
+          }
           parentCallback();
         })
         

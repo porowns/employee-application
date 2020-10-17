@@ -51,6 +51,7 @@ const cleanData = (rows) => {
 const EmployeePage = () => {
     const [loaded, setLoaded] = useState(null);
     const [rows, setRows] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     const updateData = (_rows, loaded = true) => {
         _rows = cleanData(_rows);
@@ -78,8 +79,9 @@ const EmployeePage = () => {
         })
     }
 
-    const refreshData = () => {
+    const refreshData = (errors = []) => {
         setLoaded(null);
+        setErrors(errors);
         fetchData();
     }
 
@@ -112,8 +114,15 @@ const EmployeePage = () => {
         )
         
     } else if (loaded === true) {
+        
         return (
             <div className="bx--grid bx--grid--full-width bx--grid--no-gutter employee-page">
+                {errors.map(error => (
+                    <InlineNotification
+                    kind="error"
+                    title={error}
+                    />
+                ))}
                 <EmployeeForm 
                 parentCallback={refreshData}
                 />

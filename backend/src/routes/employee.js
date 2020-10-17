@@ -37,7 +37,7 @@ router.post('', async (req, res) => {
     const newEmployee = await employee.addEmployee(req.body)
     return res.status(200).send(newEmployee)
   } catch (e) {
-    return res.status(400).send(e.toString())
+    return res.status(400).send({"message": e.toString()})
   }
   
 })
@@ -60,7 +60,7 @@ router.patch('/:id', async (req, res) => {
   
     return res.send(updatedEmployee)
   } catch (e) {
-    return res.status(400).send(e.toString())
+    return res.status(400).send({"message": e.toString()})
   }
   
 })
