@@ -15,14 +15,7 @@
 
 # Additional Information
 
-## IBM Cloud URLs
-Applications are deployed to internal IBM cloud at the following URLs:
-1. [API](https://employee-api.stage1.mybluemix.net/api/employees/)
-2. [User Inferface](https://employees.stage1.mybluemix.net/#/)
-
-**Must be on the VPN network.**
-
 ## Test Cases
-Test cases exist for the backend, I just wrote them in Postman because it's quick and easy. 
+Test cases exist for the backend, I just wrote them in Postman because I was using anyway. 
 
 [Link to Postman Docs](https://documenter.getpostman.com/view/934028/TVRrVjNW)
