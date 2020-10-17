@@ -5,6 +5,14 @@ class Role {
         this.unique = unique 
         this.users = [] 
     }
+
+    addEmployee(_id) {
+        this.users.push(_id)
+    }
+
+    removeEmployee(_id) {
+        this.users = this.users.filter((id) => id != _id)
+    }
 }
 
 module.exports = { Role }

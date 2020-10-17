@@ -11,6 +11,7 @@ router.get('', async (req, res) => {
   return res.send(employees)
 });
 
+/* GET individual employee. */
 router.get('/:id', async (req, res) => {
   const employeeObject = await employee.getEmployee(req.params.id, true)
 
@@ -21,6 +22,7 @@ router.get('/:id', async (req, res) => {
   return res.send(employeeObject)
 });
 
+/* POST create employee. */
 router.post('', async (req, res) => {
   const requiredFields = ['firstName', 'lastName', 'hireDate', 'role']
   const fields = Object.keys(req.body)
@@ -40,6 +42,7 @@ router.post('', async (req, res) => {
   
 })
 
+/* PATCH update employee. */
 router.patch('/:id', async (req, res) => {
   const _id = req.params.id
   const validFields = ['firstName', 'lastName', 'hireDate', 'role']
@@ -49,15 +52,20 @@ router.patch('/:id', async (req, res) => {
     return res.status(400).send("Only the following fields are allowed: " + validFields)
   }
 
-  const updatedEmployee = await employee.updateEmployee(_id, req.body)
-
-  if (!updatedEmployee) {
-    return res.status(404).send()
+  try {
+    const updatedEmployee = await employee.updateEmployee(_id, req.body)
+    if (!updatedEmployee) {
+      return res.status(404).send()
+    }
+  
+    return res.send(updatedEmployee)
+  } catch (e) {
+    return res.status(400).send(e.toString())
   }
-
-  return res.send(updatedEmployee)
+  
 })
 
+/* DELETE remove employee */
 router.delete('/:id', async (req, res) => {
   const deletedEmployee = await employee.removeEmployee(req.params.id)
 

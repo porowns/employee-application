@@ -4,7 +4,8 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "publish": "ibmcloud cf push employee-api"
   },
   "dependencies": {
     "cors": "^2.8.5",

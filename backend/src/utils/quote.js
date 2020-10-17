@@ -1,6 +1,7 @@
 
 var fetch = require('node-fetch')
 
+/* Gets a Ron Swanson (life) quote */
 const getQuote = async () => {
     url = "https://ron-swanson-quotes.herokuapp.com/v2/quotes"
     return fetch(url)
@@ -8,3 +9,155 @@ const getQuote = async () => {
 }
 
 module.exports = { getQuote }
+
+/*                                                                                                    
+                                                           ```..``                                              
+                                                   .;;:;i;ii+++*i*i,`                                           
+                                                ``:####+++++###**++z#;`                                         
+                                               `,*nnzz#z#z##zz#++##znx+,`                                       
+                                             `,*zzzznzz#z#nz##z##znxnzzxz,                                      
+                                            `,*xxz#+#zzznxMWMMxnzznnnxMMWM+`                                    
+                                           `,zxxzzzzzzzznMW@@@WWWWMMWMxxWMM+`                                   
+                                          `izxn#znnzzxnznxW@@@WMnxxxz#znMMMMi`                                  
+                                        ``+MMMnnz#zzznxnnnxMMMnz##++++znxMMxx:                                  
+                                        `#xMMxxxxnzznnnnzzzznzzn##zzzznMMMMxx+.                                 
+                                       `:MMMMxnxxxnnnzznnnnxxxxnnxxxxxnxMWMxMn:`                                
+                                      `;zMMMMMMWWMn##zzznxnnnnMMMxxxxxMxxMMMMxi.                                
+                                     .#xWMMWWWxxMxznnzzxxMMxxMMWMWMMMMMMMMMxMM#,                                
+                                     *MWMMMMMMWWMxMWxznMMMMMxMWWWWMMMMMMMWxxMMx;                                
+                                    `xWxWMWMMMMMMMMxnnzznMWWMMxWWWWMWMxMWWMMMMx+`                               
+                                    .W@MWMMMMMxMxnnnnnnnxMWWMWMMWW@MMWxWMWWMMMMz.                               
+                                   `iW@@WWWMxxnnnnnxxMMxMMMMWWWMMWWWMWWMMWWWMMMn;                               
+                                 ``zWW@@WWWMMMMnnnxxxxMMMMMWWWWWMM@WMWWWWWWWWWMn*`                              
+                                  :MW@@@@@WWWWMxnxxxMMMWWWWWWWWWMMWWWM@WWWWWWMMMz;`                             
+                                  ;WW@WW@@WMMMxxMMMMMWWWWWWWWWWWMMMMWWWWWWWWWWWMxzi`                            
+                                 `+@W@@MWWWMxnxMMMMMMMMWWMWWWMWWWMWMW@WWWWWWWWWWxzn:                            
+                                 ,M@@@@WMMMMxxMMMMMWMxxMxxMMWMWWWWWWWWWWW@WWWWWMMnn#`                           
+                                 :W@@@@@@WxnnnxMMWWWxnzzzznxMMMWMWWWWWWWWWMWWWWMMnzni                           
+                                 i@##@@@@WWMxnxxxxMMxnz+++zznxxMMMMWWWWWWWMMWWWMMnzn#`                          
+                                 *@@#@@@@@WMxxxxxMMxnz+iii*+##znxxxxMMMMWMMWWWWMxxnnx;`                         
+                                 #W@@@@@@@WWxxxMMMxn#*i;:::;i*++#zznxxxMMMMWWWMMxxnxx#:                         
+                                `z@@@@@@@@WMMMxxxxnz*;:,,,,,:::;i**+#zznxxxMxxxxnxxMMx;:`                       
+                                .n@@@@@@@@@WMxxxnnz+i:.,,..,,,,,:;;ii**#znnnzznnznMMWWni`                       
+                                `n@@@@@@@@@WWMxnnn#*;,.,,,....,,,,,::;;i*#++++#z#zMWWWx:.                       
+                                .z@@@@@@@@@WMMxnn#+;,,,,,......,,,,,,,::i*iiii*#+#xMW@Wi.                       
+                                ,W@@@@@@@@@WWMnnz#i;,.,,,......,,,,,,,:::;;;ii*+++nMW@W*`                       
+                                `x@@@@@@@@@@Mxnz#+;:,,.,,......,,,,,,,,::::;ii**++zMWWW+`                       
+                                `n@@@@@@@@@MMxz##*;:,...........,,,,,::::::;ii**++zMWWWz`                       
+                                :M@@@@@@@@@Wxzzz#*i;,.,..........,,,,,:::::;;i**++#xWWWx,                       
+                                i@@@@@@@@@WWxnz##+i:............,,,,,,:::::;;ii*++#nWWM#;                       
+                                +W@@##@@@@WWMxz##*:,..............,,,,::::;;;ii*+++zWWMi,                       
+                                +W@@@@@@@@@WWxzz#i:,...............,,,:::::;;ii*++#zWWM*`                       
+                                *W@@@@@@@@@@WMnz+i:,...........,..,,,::::::;;i**++##MWMi`                       
+                               `+MWWWWW@@@@@WWnz+i:,..........,,,,,,::::::;;;;i*++##MWx*                        
+                               `#WMMWWMW@@@@@Mnz+i:,.............,,,,:::::;;;;i*++##xMz:                        
+                               `#MMzMWWW@@@@@Mn#i,,,..............,,,:::::::;;i**++#xMz.                        
+                               `#xM*nMWWW@@@@x#i,,,,.,.....,......,,,:::;::::;i*++++nxi`                        
+                               `;nWi**xWWW@@Wn*,,,,,.....,,:;;:,,,,,,:::;,:::;;i**++n*,                         
+                               `*MW;:*#xMWWWx#:,,,,,,,..,::;ii***i;;:,:::,,,:;i*+++*#``                         
+                                +nW;,;zxWWWxz*,,,,,,,,,,,,,,:;i+zzn#i::::,:;;i+zzzz*i                           
+                               `,xW;:;+nMWMn+i,,,,,,,,,,,,,,,,,:;;i**;::;;*+zzzz##+*;                           
+                               `*xW;:;;*zxMz+;,,,,,,,,,,,,;i**ii;:;;;;,:;*####*i;i;*:                           
+                               .+WWi,i;+nxxz+:,,,,,,,,:;i*+*+;:i*ii:,,,:;+##nz#i++;+,                           
+                               `zWW*,;*inxn#*:,,,..,,,,:;.i*i:,:ii:,,.,:;#+*+*i:+**+.                           
+                              ``zMW*,:;inxn#i,,,,......,:,.,,.,;i;,...,:i+#i;:,;+**i`                           
+                               .zMW+:,,+nxn#;,,,,.......,,,,,,;;i:....,,i**i;;i***+:                            
+                              `,#xM#,..;#nz+;,,,,........,,::;;;;,....,:i**i;;;i*++.                            
+                               .#xM+....;#z+;,,,,........,,,::::,...,.,:i*iiiiii*+*`                            
+                               ,zxM+,...:#z+i:,,,........,,,,:,,....,,,:i*iiiiii***`                            
+                              `.;zxz:...,+z+i:,,,........,,,,,,,...,,,,:i*ii*iii**;                             
+                               .;zxx+,..::i**:,,,.........,,,,,,,,,,,,,:i*ii*iii*+,                             
+                               `:#zxx#;;::::;:,,,,.........,,,,,:,,:,,,:;+i**ii***`                             
+                                `i+zMM+;:::,,,,,,,,........,,,::;:::,,,:;********i`                             
+                                `:i*nM*:;::,,,,,,,,,.......,,,:;;::,,,,::;*******:                              
+                                 ``,izi:;,,,,,,,,,,,.......,,,;i;:,,,,,,::i****++,                              
+                                    `:;:;:,,,,,,,,,,........,:;:;::;::,,:;*****++.                              
+                                     `;:;::,,,,,,,,,........,::,::;::;:;i##+***+*`                              
+                                     `;:;::,,,,,,,,,,......,,,,:;i*+++*#MWMz++*+i`                              
+                                     .;:;::,,,,,,,,,,......,,:;;*+#nnxxnxMMMx#**;                               
+                                   ``,;:;;:,,,,,,,,,,,,,,..,ii#+#zzxxxMMxMxWMn+*:                               
+                                   .i*;::;:,,,,,,,,,,,,,..:i#znnzxnnnxMMxxnMMx+*.                               
+                                 `iMW+::,;:,,,,,,,,,,,,,,:*#znnnznnnznxxnnxMMx#*`                               
+                                .#M@@*::,::::,,,,,,,,,,,,i+zzzzzzzznnzxxnxxxxx#;                                
+                               `#xW@Wi:,,,:,,,,,,,,,,,,,,*znnzzzz#znxxnnnnnnxn+.                                
+                               izMW@x;:,,,::,,::,,,,,,,,:+znz#+ii;;iii****+#zz;`                                
+                              .#zM@@+;:,,,,:,,,::,,,,,,,:+z#+*;:,::;iiii**+++*.                                 
+                              :zzM@n*;:,,,.:,,,:::,,,,,,:;;;::::::;ii**i*+#+*,                                  
+                              *nzzM#*;,,,,,,:,,:,::,,,,,,,,,,,,,::;;;;ii*+#+;`                                  
+                             `#nzzn++;,,..,.,,,,:,:::::,,,,,,,,,,,::::;i*#*:`                                   
+                            `:znnzz#ii,,,.,,.,,,,,,::::::::,,,,,,,,:::;i++,                                     
+                            `+znnnzz*i;,...,..,,,,,,,:;;;;::,,,,,,::;:;i+;`                                     
+                            ;zznnnnzn*i:,...,..,.,:,,,,,:::;::,,,,:;;:;i+.                                      
+                           ,#zzznnnnnzi;,....,.,,.,::,,,,,:::;:::::ii;i#n:                                      
+                          `+##zznnnnnnni;,...,,.,,,,,::,,,,,,:;;iii***zWxz;,`                                   
+                         `i####znnnnnnnzi;,...,,.,,,.,:::,,,,,,::;;;i+WWMn##+i,`                                
+                       `:+####zznnnnnnnnni:,...,,,,,,,,:::::,,,:::;i*#WWMxz####*;,``                            
+                      `;+####zzzznnnnnnnnn*:,..,,,,,,:,,,::::::;;ii++zM@Mxx#+####+*i:,`                         
+                     `i+##z#zzzzzzznnnnnznn+:,..,,,,,:::,,::;;iii**++zn@Wxxz###zz###++*,`                       
+                    ,*++##zn#zzzzznznnnnnznn#:,,,,,,,::::::::;iii**+##zMWxxz#z##zzz####+;`                      
+                  `:*++##znnnznznnnnnnnnnnnnnz,,,,,,,,::::::;;ii****#+#zWxxx#####zzzz#z##*,`                    
+                 .i*++##znznxnznznnnnnznnnnnnnn:.,,,,,,:::::;;iiiii+#*#iWxxxz#z###zzzzzzz##i.`                  
+                .*+####znzznnxnznnnnnnnznnnnnnnn;`,,,,,:::::;;;;;;i++*;;Wxnxz###zz#znzzzzz##+:`                 
+               ,+###z#znnzznnnxnnnnxxxnnnznnnnnnx+.`,,,,::::::::;;i++*,;Mxnnnzzz#zz#znzzzzz###i.                
+             `:+###zznnzznznxnxMnnnnxxnnnnnnnnnnnx#,``.,::;;::;;;;*#*.,;xxnznzz#zz###znzzzzzz##+:`              
+            `;####zznnzzznxxnxxxxnxxxxxnnnnnnnnnnnnn;```.,;iiii*i;:,...:nxnznnzzz####nnnznzzzz##+;              
+           .*######zzzznnnnnnnxxxxnxxxxxnnnnnnnnnnnnx*.``````..`.......,#nnzznnzz###znnnnnnzzzzz##:             
+          ,+#####+zzzznnnnnxxxnnxxxnxxxxxnnnnnnnnnnnnxz,```````````...`.+nnnMWWxznnnnnxnnnnnnnzzzz#,            
+        `;##+++##zzznnnnnnnnnxnnxxMMnxMxxxxnnnnnnnnnnxxni.````````..```,zznnnM@@WMnnnnnxxnnnnnnnzzz+`           
+       `i###+###zznznnnnnnnnnxnxnxxMxxxMxxxxnnnnnnnnnnnxxn*,,,,.```````iznnnxWW@WWxnnnnnnnnnnnnnnnzz:           
+      .*#+++###nzznnnnnnnnnnnxxxxxxxMMxxMMMxxxnnnnnnnnnnxxMxnnznni...`.#nnnxW@@@@WMxxxxxxxnnnnnnnnnn+`          
+     .*#+++###nzznznnzznnnnnnnxxnxxxMMxxxMMMxxxxnnnnnnnnnxxMxMMxMM:..`;znnxW@@@@@@Wxnnnnxnnnnnnnnnnnn:          
+    .*#######zzzzznzznnnnnnnnxnxxxxxxMxxxxMMMxxxnnnnnnnnnxxxWWWWWWz,..iznxW@WW@@WWWxnnnnnxnnnnnnnnnnn*`         
+```,+zz#####znzznzznznnnnnnnnnnnxxxxxMMxxxxMMMxxxxnnnnnnnnxM@WMWWMM;.,+nnM@@W@@WWWWMxnnnnxxxnxxxxnxnn#.         
+  :#z######znnnzzzzzznnnnnnnnxnxxxxxxxMxxxxxxMMxxxxxnnnnnMWWWWWMMxxz,:#xxW@@@@WWW@WWxxxxnnnxnxxxxxnnxn:         
+`:########znnnnnznnzzznnnnnnnnnxxxxxxxxMxxxxxxMMMxxxnnnnMW@WWWWWMMMM+;nnx@@@@@@WWWWWMxxxxnxxnnnnnxnnxni         
+,+##zzzzzznnnznnnzzzzznnnnnnnnxxxxxxxxxMMxxxxxxxMMxxxxxWWWWWWMMMWWMMM+xxM@@@@@WWWWWMMxnnnnnnnnnnxnnnnx#         
+*#zzzzzz#nznznnnnnznnnnznnnnnnnnxxxxxxxxMMxxxxxxnMMxxMWWWWWWMMMMMMWMMxxnM@@@@WWMMMMMMxnnnnnnnnnnxxxnnxz`        
+#zzzzzzzznzzzznznnnzzzznnnnnnnnnxxxxxxxxMMxxxxxMMMMMWWWWMMMMMMMxxMMMMMxxM@@WWWMMMMxxxxnnnnnnnnnnxxxnnxn,        
+zzzzzzzznnzzzznnnnnnznnnnnnnnnnnxxxxxxxxxMMxMMMMxxMMMMMMMMMMMMxMxxxxMWxxW@WWWWMMMxxxxxxnnnnnnnnnxxxxnnxi        
+znzzzznnnnzznnnnnnxnnznnnnxnnnxxnxxxxxxxxxMMMxxxxMxMxMMMMxMMMMxxxxxxxxnnWWWWWMMMxxxxxxxnnnnznnnnnxxxxnx#`       
+zznnznzxnznnnznnnxnnnnnnnxnxxnnnxxxxxxxxxMMMMxxxxxMMMMxxMMMxMMMxxxxxxxnnWWWWMMMMxxxxxxxnnnnnnnnnnxxxxnxn.       
+nnzzzznnnnnnnnnnnnxnxnnnxxxnxnxxxxxxxxMMxxxMMMMxxMMMMMMMxxxxxMMMxxxxxxxnW@WMMMMxxxxxxxnnnnnnnnnnnxxxxxxx;       
+zzzzzzxznnnnnznnnnnxxxxnnxnnxxxxxxxxMMMxxxxxxMMMMxxMMMxxxxxxxMxMMxxxxxMnMWWMMMMxxxxxxxnnnnnnnnnxnnxxnxxx+       
+zznzznnnnnnnnnnnnnnxxnxxxnnxxxxxxxMMxxxxxxxxMMMxMMMxxxxxxxxxxxMMMMxxxxMnMWWMMxMxxxxxxnnnnnnnnnnnnnxxxxMxn`      
+nznzznnnnnnnnnnnnnnnnxxxxxnxxxxxxxxxxxxxxMMMMMWMMxxxxxxxxxxxxMxMMMxxxxMMxWWMxxxxxxxxxxnnnnnnnnnnxnnxxxMMx,      
+znxnznnnnnnnnnnnnnnnnxxxxxxnnxxMxxxxxxxxMMxxMMMMxxxxxxxxxMxxxxxxMMMxxxxMxWMMMxxMxxxxxxnnnnnnnnnnxnnxxxMMxi      
+nnnnnnnnnnnnnnnnnnnnnnxxxxxxxMxxxxxxxxMMxMMMxxxMMxxMMxxxMMxxMxxxMMMxxMxMxWMxxxMxxxxxxxnnnnnnnnnnnxnnMxMMM#      
+nnznnnnnnnnnnnnnnnnnnnnxxxxxxxxxxxxxMxxMMxxxxxxxMMxxxxxxxxxxxxxxMMMMxMxMxMMMxxxxxxxxxxxnnnnnnnnnnxnnxxMWMz`     
+nnznnnnnnnnnnnnnnnnnnnnnxxMxxxxxxxMMxMMxxxxxMxxxxMxxxxxxxxxxMxxxxMMMxxMxxMMMMMxxMxxxxxxnxnnnnnnnnxxnxxxWMx.     
+nnnnnnnnnnnnnnnnxxnnnnnnxMxMxxxxMxxxMxxxxxxxMxxxxMMMMMMMxxxxxxxxMMMMMxxxxMMMMMMxMxxxxxxnnnnnnxxxxxMxxMxWMM,     
+nnnnnnnnnnnnnnnnnxxnnnnxxxxxxxxMxxMxxxxxxxxxMMxxxxMxxMxxxxMxxxxMxxMMMxxxxMMxxxMMMMxxxMxxxxxxxxxxxxxxnxMMWM;     
+nnnnnnnnnnnnnnnnnxxnnnnxxxxxxxxxxMxxxxxxxxxxxMMxxxMMxMxxxxMxxMMxMxMMMxxxxxMMMMxMMMxxxxxxxxxxxxxxxnxxxxMMWWi     
+nnnnnnnnnnnnnnnnnxxxnnxnxxxxMMxMxxxxxxxxxxxxxxxxxxxMMxxMMxMMxMxMMMMMMMxMMMMMxMMMMMMxMMMxxxxxxxxxxxxMxMMMWM*     
+nnnnnnnnnnnnnxnnnnxxnxnxxxxMMMMxxxxxxxxxxxxxxxxxxxxMMMMxMxMMMMMMMMMMWMMMxMMMMMMMxMMxxxMxxxxxxxxxxnnxxxMxWW+     
+nnnnnnnnnnnnnxxnxxnxxnnnnxxMMMxxxxxxxxxxxxxxxxxxxxxxMMMxMxMMMMMxMMMMWWMxMMxxxMMMMMMxxxxxxxxnxnnxxxxxxxMxWW#     
+nnnnnnnnnnnnnxxxxnnxxxnnxxxMMxxxxxxxxxxxxxxMxxxxMxxxMMMxxMMMxMMMMMMMWWMMxxMMMxMxxxxxxxxxxnnxxnxnxxxxxxMMMWn`    
+nnznnnnnnnnnnnxxMnxxnxnnxxMMMMxxxxxxxxxxxxxMMxxxxxxxxMMxxxxMMMMMMMMMWWMxMxxxMxxxxxxxxxxxxxxxxxxxxxxxxxMMxMx.    
+nnnnnnnnnnnnnxxxMxxnnxnxxMxxMMxxxxxxxxxxxxxxxxxxxxxxxxMMxMxMMMMMMMMMMWWMxxxxMxMxxxxxxxxxxxnxxnxxxxxnxxMMxWx;    
+nnnnnnnnnnnnnxxxxxxnxnxnxxxMxMxxxxxxxxxxxxxxMxxxxxxxxMxMMMMMMMMMMMxMMWWMxxxxxMMMxxxxxxxxxxxxxxxxxxxxxxxMxWx#    
+nnnnnnnnnnnnnxxxxxxxxxxxnxxxMMxMxxxxxxxxxxxxMMxxxxMxxxxMMMMMMMMMMMMMMMMMxxxxxMxMxxxxxxxxxxxxxxxxxxxxxxxMxMxn.   
+nnnnnnnnnnnxnxxxxMxnxxxnnnxMMxxxxxxxxxxxxxxxMMMxxxxxxxMMWMMMMMMMMMMxxMMMxxxxxMMMxxxxxxxxxxxxxxxxxxxxxxxMMMxx:   
+nnnnnnnxnnnnxnnxxMxxnxxnnxxMMxxxMMxxxxxxxxxxMMxMMxxMMMMxMWMMMMMMMMMMxxMMMxxxxMMMxxxxxxxxxxxxxxxxxxxxxxnMMMxx*   
+nnnnnnnnnnnnnxxxxMMxnnnnnxxMMMxxxxxxxxxxxxxxMMxxxxMMMxMMMMMMMMMMMMMMxxMMMxxxxxxMxxxxxxxxxxMxxxxxxxxMMMxMMxMMz`  
+nnnnnnnnnxnnnxnxxMMxnnnnnxxMMxxxxxxxxxxxxxxxxMMxMMxxMMMMMWMMMMMMMMMMMMMMWxxxxxxMMxxxxxxxxxxxxxxxxMxxxMxMMxMMx,  
+nnnnnnxxnnnxxxxxxMMxnnnnnnxMMMxxxxxxxxxxxxxxxMMMxxMMMMMMMMWMMMMMMMMMMxMMMMxxxxxMMxMxxxMxxxxxxMMxxMxMMxxMMxMMMi  
+xxxxnxnnnxxnxxxxxMMxxnnxnnxMMMxnxxxxxxxxxxxxMMMMMMxxMMxxxxMMMMMMMMMMMMMMMMxxxMMMMMxxxxMMxxxMxxxMMMMMMxxMMxMMMz  
+nnxxxxnnnnnxxxxnxMMxnnnxnnxxMMxxxxMxxxxxxxMMxMMMxMMMxMMxxxMMMMMMMMxMMMMMMMxxxxxMMMMxxxxMxxxMMxMMMMMMMMxMMMMMMx. 
+xxxxnxxxxxnxxxxxxMMxxxnxnnxxMMxxxxxxxxxxxxxxMMMMMxxxxxMxxxxMMMMMMMMMMMMMMMMxxxxMMMxxxxxMxMxMMMMMMMMMMxxMMMMWMM; 
+nnxxxxxxxxxxxxxxMMMxxxnnnnxxMMMxxxxxxxxxxxMMxMMMxxxxxxMxxxxMMMxMMMMMMMMMMMMxxxMMMMxxxxxMMxxMMMMMMMMMMMnMMMMWMM+ 
+xxxxnnxxxxxxxMxxMMMMxxnnnnxxMWMxxxxxxMMxxxxxMMxxxxxxxxxMxxMxMxxMMMMMMMMxMMMxxxxMMMMxxxxxMxxMMMMMMMMMMMnMMMMWMMn`
+nnxxxxxnnxxxxxxxMMMMxnnxnnxxMWMxxxxxMMxxxxMxxxxxxxxxxxxMxxxxMMMMMMMMMMMxMMWMxxxMMMMMxxxMMMMMMMMMMMMMMMnMMMMWWMx,
+nnnnnnxxxxxxxxMMMMMxxxnxxxnxMMMxxxxxxMxxMxxxxMMMxxxxxxxxxxxxMMxxMMMMMMMMMMMMxxxMMMMMxxxxMMMMMMMMMMMMWMxMMMMWWMM;
+nnnnnnnnxnxxxxxxMMMMxxMMMxnxxMWMMxxxMxxxxxxxxMMxxxxxxxxxxxxxMMxxMMMMMMMMMMMMMxxxMMMMxxxxxxxMWMMWWWMMMMxxMMMMWMM+
+nnnnnxnnnnxnxxMMWWMxxxxMMxxxxMWMxxxxxMxxxxxxxMMMxxxxxxxMxxxxxMMMMMMMMMMMMMMMxxxxMMMMMMxxMMMMWWMMMMMMMMMxMMMMWMMn
+nnnnnnnnxxxnxxxxMMMxxxMWWxxnxMWWMxxxxxxxxxxxxMMMxxxxxxxxMxxxxMMxMMMMMMMMxMMMMxxxMMMMMMMMMMxMMMMMMMMMMMMnMMMMWMMM
+nnnnnnnnnxxnxxxxMMxxxMMWWMxxxMWWxxxxxxxxxMxxxxMMxxxxxxxxMMxxxMMxMMMMMMMMMMMMMxxxMMMWMMxxxMxMMWMMMMMMMMWxMMMWWMMM
+nnnnxnnnxxxxxxxxMMMxxxxMWMxxMMWWMxnnxxxxMMxxxxMMxxxxxxxxMMxxxMMMMMMMMMMMMMMMMxxMMMMMMMMxxMMMMMMMWWWMMMMxMMMWWWMM
+nnnnnxnnnxxxnxxxMWMxnxMWWMxxxMWWxxnnxxxMMxxxxxMMxxxxxxxxxMxxxMMxxMMMMMMMMMMMWMMMMMMMMMxMxMMMMWWWMWWMMMWxMMMWWWWM
+nnnnnxnxxxxxxxxxMWMxxxMWWWxMxMWWxxnnxxMMMxnxnxMMxxxxxxxxxMxxMMMMxMMMMMMxMMMWWMxxMMMMMMMMMMMMMWMWWWMMMMMxMMMWWWWM
+xnnnnnnxxxxxxxxxWWMxxxMW@WxxxMWMxxnxxxMMMxnnnxMxxxxxxxxxxMMxxMMMxMMMMMxMMWMMMMxxMMMMMMMMMMMMMWWMMMMMMMMxMMMWWWMM
+xxxnnnnxxxxxxxxMWWMxxxMW@WMxxMMMxxxxxMMMMxnnxxMMxxxxxxxxxMMxxxMMxxMMMMMMMMMMMMxxMMWWMMMMMMMMMMWMMMMMxMMMMMWWWWWM
+nxxnnnxxxxxxxxxMMWMxxxMW@WxxxMMMxxxxMMWMMxnnxxxxxxxxxxxxxxMxxxMMxxMMMMMMxMMMMMMMMMMMMWMMMxMxMMWMMMMMxMMMMMWWWWWW
+nxxnnnnxxxxxnxxxMWMxnxMW@WxxxMMMxnxMMMWMxxxnxxxxxxxxxxxxxxMxxMMMxMMMMMMMxMMMMWMxxMMMMMMMMMMMMMWMMMMMxMMMMMWWWWWW
+*/
+
