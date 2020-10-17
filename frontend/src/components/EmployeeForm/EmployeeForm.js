@@ -99,7 +99,7 @@ export const EmployeeForm = ( {parentCallback} ) => {
       {...props()}>
       <TextInput
         id="firstName"
-        placeholder="Last Name"
+        placeholder="First Name"
         invalidText="A valid value is required"
         labelText="First Name:"
         invalid={firstNameInvalid}
